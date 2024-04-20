@@ -13,11 +13,15 @@ export default function Navbar(props: { name: string }) {
     setShowNavbar(!showNavbar);
   };
 
+  /** Changed Beaver Logo to route to /login instead of / 
+   * Changed page names and links to Dashboard, Calendar, Profile, Hours,
+  */
+   
   return (
     <nav className={`${styles.navbar} ${showNavbar && styles.active}`}>
       <div className={styles.container}>
         <div className={`${styles.nav_left} ${showNavbar && styles.active}`}>
-          <Link href="/">
+          <Link href="/login">
             <Image
               className={styles.logo}
               src={"beaver-logo.svg"}
@@ -40,35 +44,30 @@ export default function Navbar(props: { name: string }) {
 
         </div>
         <div className={`${styles.menu_icon} ${showNavbar && styles.active}`} onClick={handleShowNavbar}>
-          <HamburgerIcon />
+          <HamburgerIcon /> 
         </div>
         <div
           className={`${styles.nav_elements}  ${showNavbar && styles.active}`}
         >
           <ul>
             <li>
-              <Link href="https://www.slobeaverbrigade.com/come-to-a-beaver-pond/">
-                Visit
+              <Link href="/dashboard/events">
+                Dashboard
               </Link>
             </li>
             <li>
-              <Link href="https://www.slobeaverbrigade.com/news-events/">
+              <Link href="/calendar">
+                Calendar
+              </Link>
+            </li>
+            <li>
+              <Link href="/dashboard/profile">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link href="/dashboard/volunteer">
                 Volunteer
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.slobeaverbrigade.com/block-content-examples/">
-                Learn
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.slobeaverbrigade.com/about-us/">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.slobeaverbrigade.com/donate/">
-                Donate
               </Link>
             </li>
             {(props.name != "Sign In / Log In") &&
@@ -82,9 +81,8 @@ export default function Navbar(props: { name: string }) {
             </>
           }
             <li>
-              <Link href="/">
-                {" "}
-                <Search2Icon className={styles.search_icon} />{" "}
+              <Link href="https://www.slobeaverbrigade.com/">
+                Back to Homepage
               </Link>
             </li>
           </ul>
